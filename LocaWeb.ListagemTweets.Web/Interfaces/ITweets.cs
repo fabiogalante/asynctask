@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using LocaWeb.ListagemTweets.Domain.Entities;
 
-namespace LocaWeb.ListagemTweets.Domain.Interfaces
+namespace LocaWeb.ListagemTweets.Web.Interfaces
 {
     public interface ITweets
     {

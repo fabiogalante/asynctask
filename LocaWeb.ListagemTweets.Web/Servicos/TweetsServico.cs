@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using LocaWeb.ListagemTweets.Domain.Entities;
-using LocaWeb.ListagemTweets.Domain.Interfaces;
+using LocaWeb.ListagemTweets.Web.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;

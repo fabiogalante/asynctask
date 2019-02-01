@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using LocaWeb.ListagemTweets.Domain.Entities;
-using LocaWeb.ListagemTweets.Domain.Interfaces;
+using LocaWeb.ListagemTweets.Web.Interfaces;
 using Moq;
 using Xunit;
 

@@ -1,4 +1,4 @@
-﻿using LocaWeb.ListagemTweets.Domain.Interfaces;
+﻿using LocaWeb.ListagemTweets.Web.Interfaces;
 using LocaWeb.ListagemTweets.Web.Servicos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LocaWeb.ListagemTweets.Domain.Entities;
-using LocaWeb.ListagemTweets.Domain.Interfaces;
+﻿using System.Threading.Tasks;
+using LocaWeb.ListagemTweets.Web.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LocaWeb.ListagemTweets.Web.Controllers
