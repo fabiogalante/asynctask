@@ -72,8 +72,8 @@ namespace LocaWeb.ListagemTweets.Web.Servicos
             var relevantes = tweetsJson.statuses
                 .Where(l => l.in_reply_to_user_id != idLocaWeb && l.text.Contains("@locaweb"))
                 .OrderByDescending(u => u.user.followers_count)
-                .ThenBy(u => u.retweet_count)
-                .ThenBy(u => u.favorite_count)
+                .ThenByDescending(u => u.retweet_count)
+                .ThenByDescending(u => u.favorite_count)
                 .Select(t =>
                     new TweetsMaisRelevantes
                     {
@@ -103,19 +103,14 @@ namespace LocaWeb.ListagemTweets.Web.Servicos
 
             var mencionados = tweetsJson.statuses
                 .Where(l => l.in_reply_to_user_id != idLocaWeb && l.text.Contains("@locaweb"))
-                .OrderBy(u => u.user.followers_count)
-                .ThenBy(u => u.retweet_count)
-                .ThenBy(u => u.favorite_count);
-            dynamic x = new ExpandoObject();
-            var temp = x as IDictionary<string, Object>;
-            foreach (var t in mencionados)
-                temp.Add(t.user.screen_name, new TweetsMaisMencionados());
-            var mencionados1 = mencionados
+                .OrderByDescending(u => u.user.followers_count)
+                .ThenByDescending(u => u.retweet_count)
+                .ThenByDescending(u => u.favorite_count)
                 .Select(t =>
                     new TweetsMaisMencionadosName
                     {
                         name = t.user.screen_name,
-                        TweetsMaisMencionados = new TweetsMaisMencionados
+                        tweetsMaisMencionados = new TweetsMaisMencionados
                         {
                             followers_count = t.user.followers_count,
                             screen_name = t.user.screen_name,
@@ -130,7 +125,7 @@ namespace LocaWeb.ListagemTweets.Web.Servicos
 
 
 
-            return mencionados1;
+            return mencionados;
         }
     }
 }

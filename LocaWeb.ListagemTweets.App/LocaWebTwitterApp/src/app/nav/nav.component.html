@@ -1,15 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Locaweb</a>
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-      <a class="nav-link" href="#">Most Relevants</a>
-    </li>
-    <li class="nav-item">
 
-
+    <li class="nav-item" [routerLinkActive]="['link-active']">
       <a [routerLink]="['/relevantes']">Most Relevants</a>
+    </li>
 
-      <a class="nav-link" href="#">Most Mentios</a>
+    <li class="nav-item" [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/mentions']">Most Mentions</a>
     </li>
 
   </ul>

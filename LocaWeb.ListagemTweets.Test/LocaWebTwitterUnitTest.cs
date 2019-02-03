@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using LocaWeb.ListagemTweets.Domain.Entities;
@@ -26,20 +22,14 @@ namespace LocaWeb.ListagemTweets.Test
 
 
         [Fact]
-        public async Task Deve_Retornar_Objeto_Mencionados()
+        public async Task Deve_Retornar_Objeto_Tweets_Mais_Relevantes()
         {
-            
-            Mock<ITweets> twMoq = new Mock<ITweets>();
+            var twMoq = new Mock<ITweets>();
+            ITweets tweets = twMoq.Object;
 
-            var objectsList = new List<TweetsMaisMencionadosName>()
-            {
-                new TweetsMaisMencionadosName()
-            };
+            var test = await tweets.ObterMaisRelevantes();
 
-            twMoq.Setup(
-                rep => rep.ObterMaisMencionados()
-            ).Returns(Task.FromResult<IEnumerable<TweetsMaisMencionadosName>>(objectsList));
-
+            test.Should().BeOfType<TweetsMaisRelevantes[]>();
         }
     }
 }
