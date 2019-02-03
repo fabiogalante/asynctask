@@ -1,0 +1,18 @@
+<hr />
+
+<p *ngIf="!twitters"><em>Loading...</em></p>
+
+<table class='table' *ngIf="twitters">
+  <thead>
+  <tr>
+    <th>Twitter</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tweet of twitters">
+    <td>{{ tweet.followers_count }}</td>
+    <td>{{ tweet.created_at }}</td>
+
+  </tr>
+  </tbody>
+</table>

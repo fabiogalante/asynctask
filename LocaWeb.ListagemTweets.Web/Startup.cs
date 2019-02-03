@@ -22,6 +22,8 @@ namespace LocaWeb.ListagemTweets.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddCors();
+
             // Ativando o uso de cache em memória
             services.AddMemoryCache();
 
@@ -35,6 +37,10 @@ namespace LocaWeb.ListagemTweets.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(x => x.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseMvc();
         }

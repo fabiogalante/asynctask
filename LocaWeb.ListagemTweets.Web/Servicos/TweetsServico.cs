@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -50,7 +51,7 @@ namespace LocaWeb.ListagemTweets.Web.Servicos
                 }
 
 
-                _cache.Set("ListTwitters", jsonString, TimeSpan.FromHours(4));
+                _cache.Set("ListTwitters", jsonString, TimeSpan.FromSeconds(30));
             }
 
 
@@ -70,7 +71,7 @@ namespace LocaWeb.ListagemTweets.Web.Servicos
 
             var relevantes = tweetsJson.statuses
                 .Where(l => l.in_reply_to_user_id != idLocaWeb && l.text.Contains("@locaweb"))
-                .OrderBy(u => u.user.followers_count)
+                .OrderByDescending(u => u.user.followers_count)
                 .ThenBy(u => u.retweet_count)
                 .ThenBy(u => u.favorite_count)
                 .Select(t =>
@@ -104,7 +105,12 @@ namespace LocaWeb.ListagemTweets.Web.Servicos
                 .Where(l => l.in_reply_to_user_id != idLocaWeb && l.text.Contains("@locaweb"))
                 .OrderBy(u => u.user.followers_count)
                 .ThenBy(u => u.retweet_count)
-                .ThenBy(u => u.favorite_count)
+                .ThenBy(u => u.favorite_count);
+            dynamic x = new ExpandoObject();
+            var temp = x as IDictionary<string, Object>;
+            foreach (var t in mencionados)
+                temp.Add(t.user.screen_name, new TweetsMaisMencionados());
+            var mencionados1 = mencionados
                 .Select(t =>
                     new TweetsMaisMencionadosName
                     {
@@ -124,7 +130,7 @@ namespace LocaWeb.ListagemTweets.Web.Servicos
 
 
 
-            return mencionados;
+            return mencionados1;
         }
     }
 }

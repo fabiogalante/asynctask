@@ -13,6 +13,17 @@
 
     }
 
+    public class TweetsMaisMencionadosName1
+    {
+
+
+        //public dynamic name { get; set; }
+
+
+        //public TweetsMaisMencionados TweetsMaisMencionados { get; set; }
+
+    }
+
 
     public class TweetsMaisMencionados
     {
