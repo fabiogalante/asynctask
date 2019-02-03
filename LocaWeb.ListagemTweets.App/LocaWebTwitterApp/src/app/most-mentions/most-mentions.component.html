@@ -1,3 +1,24 @@
-<p>
-  most-mentions works!
-</p>
+<hr />
+
+<p *ngIf="!twitters"><em>Loading...</em></p>
+
+
+
+
+
+<div class="row">
+  <div  class="col-md-4" *ngFor="let tweet of twitters">
+    <ul>
+      <li>
+        {{tweet.name}}
+      </li>
+      <li *ngFor="let most of tweet.tweetsMaisMencionados">
+        {{most.profile_link}}
+        {{most.created_at}}
+      </li>
+
+
+
+    </ul>
+  </div>
+</div>

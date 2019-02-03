@@ -19,3 +19,18 @@ Para o projeto App utilize o Visual Studio Code, instale o Angular e o Node
 Utilize o comando npm install em seguida ng serve
 
 Para rodar o projeto http://localhost:4200/
+
+
+
+
+
+
+
+
+============================
+
+Escrever porque você decidiu utilizar tais ferramentas para resolver
+  esse problema
+  
+  
+  Utilizei WebApi pois é a tecnologia que mais conheço e Angular para o fronto pois é uma ferramenta simples e fácil de trabalhar.

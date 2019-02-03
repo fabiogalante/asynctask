@@ -15,7 +15,7 @@ export class MostRelevantsComponent implements OnInit {
   constructor(private twitterSerivce: TwitterservicesService, private _router: Router) {}
 
   ngOnInit() {
-    console.log('init log');
+
     this.twitterSerivce.obterMostRelevants()
       .subscribe((data: Twitter[]) => {
         this.twitters = data;

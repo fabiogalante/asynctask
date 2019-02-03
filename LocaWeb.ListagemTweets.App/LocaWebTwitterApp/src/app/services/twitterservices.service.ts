@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 // import 'rxjs/add/observable/throw';
 import { Twitter } from '../model/Twitter';
 import {BASE_URL} from '../app.module';
+import {MostMentionsName} from '../Model/MostMentions';
 
 
 @Injectable({
@@ -18,14 +19,12 @@ export class TwitterservicesService {
 
   }
 
-
-
-  public obterTwitters() {
+  public obterMostRelevants() {
     return this._http.get<Twitter[]>(this.baseUrl + 'api/Twitter/most_relevants');
   }
 
-  public obterMostRelevants() {
-    return this._http.get<Twitter[]>(this.baseUrl + 'api/Twitter/most_relevants');
+  public obterMostMentions() {
+    return this._http.get<MostMentionsName[]>(this.baseUrl + 'api/Twitter/most_mentions');
   }
 
 }
