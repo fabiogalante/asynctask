@@ -1,18 +1,19 @@
-<hr />
+  <hr />
 
-<p *ngIf="!twitters"><em>Loading...</em></p>
+  <p *ngIf="!twitters"><em>Loading...</em></p>
 
-<table class='table' *ngIf="twitters">
-  <thead>
-  <tr>
-    <th>Twitter</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let tweet of twitters">
-    <td>{{ tweet.followers_count }}</td>
-    <td>{{ tweet.created_at }}</td>
 
-  </tr>
-  </tbody>
-</table>
+
+  <div class="row">
+    <div  class="col-md-4" *ngFor="let tweet of twitters">
+      <ul class="list-inline">
+        <li class="list-group-item"> {{tweet.followers_count}} </li>
+        <li class="list-group-item"> {{tweet.screen_name}} </li>
+        <li class="list-group-item"> {{tweet.profile_link}} </li>
+        <li class="list-group-item"> {{tweet.created_at}} </li>
+        <li class="list-group-item"> {{tweet.link}} </li>
+        <li class="list-group-item"> {{tweet.retweet_count}} </li>
+        <li class="list-group-item"> {{tweet.favorite_count}} </li>
+      </ul>
+    </div>
+  </div>

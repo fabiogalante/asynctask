@@ -1,6 +1,6 @@
 export class MostMentionsName {
   name: string;
-  tweetsMaisMencionados: MostMentions[];
+  tweetsMaisMencionados: MostMentions;
 }
 
 export class MostMentions {

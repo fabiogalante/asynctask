@@ -4,10 +4,8 @@
    
     public class TweetsMaisMencionadosName
     {
-        
         public string name { get; set; }
         public TweetsMaisMencionados tweetsMaisMencionados { get; set; }
-
     }
 
   

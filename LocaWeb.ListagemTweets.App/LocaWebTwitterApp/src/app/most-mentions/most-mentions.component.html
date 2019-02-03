@@ -3,22 +3,22 @@
 <p *ngIf="!twitters"><em>Loading...</em></p>
 
 
-
-
-
 <div class="row">
   <div  class="col-md-4" *ngFor="let tweet of twitters">
-    <ul>
-      <li>
-        {{tweet.name}}
-      </li>
-      <li *ngFor="let most of tweet.tweetsMaisMencionados">
-        {{most.profile_link}}
-        {{most.created_at}}
-      </li>
-
-
-
+    <ul class="list-inline">
+    <li class="list-group-item">
+      {{tweet.name}}
+    </li>
     </ul>
+    <ul class="list-inline">
+      <li class="list-group-item"> {{tweet.tweetsMaisMencionados.created_at}} </li>
+      <li class="list-group-item"> {{tweet.tweetsMaisMencionados.profile_link}} </li>
+      <li class="list-group-item"> {{tweet.tweetsMaisMencionados.favorite_count}}</li>
+      <li class="list-group-item"> {{tweet.tweetsMaisMencionados.screen_name}} </li>
+      <li class="list-group-item"> {{tweet.tweetsMaisMencionados.followers_count}} </li>
+      <li class="list-group-item"> {{tweet.tweetsMaisMencionados.link}} </li>
+      <li class="list-group-item">  {{tweet.tweetsMaisMencionados.retweet_count}} </li>
+    </ul>
+
   </div>
 </div>

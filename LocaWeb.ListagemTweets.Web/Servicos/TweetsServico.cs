@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using LocaWeb.ListagemTweets.Domain.Entities;
@@ -41,12 +41,8 @@ namespace LocaWeb.ListagemTweets.Web.Servicos
 
                     using (var response = await client.GetAsync(uri))
                     {
+                        if (response.IsSuccessStatusCode) jsonString = await response.Content.ReadAsStringAsync();
 
-                        if (response.IsSuccessStatusCode)
-                        {
-                            jsonString = await response.Content.ReadAsStringAsync();
-
-                        }
                     }
                 }
 
